@@ -1,0 +1,5 @@
+table <- read.table(file.choose(),header = TRUE, sep ="\t")
+stacked_table <- stack(table)
+results <- aov(formula= values~ind, data = stacked_table)
+summary(results)
+TukeyHSD(results)
